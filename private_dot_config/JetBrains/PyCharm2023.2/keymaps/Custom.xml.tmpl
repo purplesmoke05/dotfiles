@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   include "private_dot_config/JetBrains/PyCharm2023.2/keymaps/Custom.xml_darwin" -}}
+{{- else if eq .chezmoi.os "linux" -}}
+{{-   include "private_dot_config/JetBrains/PyCharm2023.2/keymaps/Custom.xml_linux" -}}
+{{- end -}}
