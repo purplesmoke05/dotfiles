@@ -1,4 +1,4 @@
-output DP-0
+output DP-1
 off
 output DP-2
 off
@@ -9,13 +9,13 @@ off
 output DP-5
 off
 output HDMI-0
-crtc 0
-mode 1920x1080
-pos 0x0
-primary
-rate 60.00
-output DP-1
 crtc 1
 mode 1920x1080
-pos 1920x0
+pos 0x0
 rate 60.00
+output DP-0
+crtc 0
+mode 1920x1080
+pos 1920x0
+primary
+rate 240.00
