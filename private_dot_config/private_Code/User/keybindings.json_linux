@@ -1,7 +1,7 @@
 [
     { "key": "ctrl+=", "command": "workbench.action.terminal.focus"},
     {
-        "key": "alt+2",
+        "key": "meta+2",
         "command": "workbench.action.focusActiveEditorGroup"
     },
     {
@@ -37,7 +37,7 @@
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "alt+1",
+        "key": "meta+1",
         "command": "workbench.explorer.fileView.focus"
     },
     {

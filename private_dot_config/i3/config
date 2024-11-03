@@ -49,6 +49,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return exec alacritty
+bindsym $mod+Shift+Return exec warp-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -65,10 +66,10 @@ bindsym button2 kill
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 
 # change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
-bindsym $mod+l focus right
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+l focus up
+bindsym $mod+semicolon focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -77,10 +78,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -256,7 +257,7 @@ for_window [class="^.*"] border pixel 2
 
 # Run wofi luncher
 bindsym $mod+d exec --no-startup-id "rofi -modi 'run,drun' -show run"
-bindsym $mod+Tab exec --no-startup-id "rofi -show window"
+bindsym Mod4+Tab exec --no-startup-id "rofi -show window"
 
 # Run animation manager
 exec --no-startup-id "picom -b"
@@ -315,3 +316,6 @@ exec --no-startup-id streamdeck -n
 
 # Run Xmodmao
 exec_always --no-startup-id xmodmap ~/.Xmodmap
+
+# Run i3-quickterm
+bindsym Control+3 exec i3-quickterm shell
