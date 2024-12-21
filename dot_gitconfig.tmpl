@@ -1,8 +1,20 @@
 [ghq]
 	root = ~/go/src
-    root = ~/Projects
+	root = ~/Projects
 [user]
 	name = {{ .chezmoi.username }}
 	email = {{ .email | quote }}
 [core]
 	autocrlf = input
+[http]
+	postBuffer = 524288000
+[alias]
+	s = status
+	b = branch
+	c = commit
+	a = add
+	rsh = reset --hard HEAD
+	ph = push
+	pl = pull
+	req = pull-request
+	bw = browse

@@ -98,9 +98,10 @@ function peco-repo() {
 bind -x '"\C-r": peco-repo'
 
 # Environment variables and PATH settings
+# export GOROOT=/snap/go/current
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOPATH/bin
-
+export GOTOOLCHAIN=local 
 # anyenv initialization
 export PATH="$HOME/.anyenv/bin:$PATH"
 eval "$(anyenv init -)"
@@ -125,6 +126,8 @@ export PATH="$VOLTA_HOME/bin:$PATH"
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 alias protontricks='flatpak run com.github.Matoking.protontricks'
 eval "$(pyenv virtualenv-init -)"
+export PATH=$GOENV_ROOT/bin:$PATH
+eval "$(goenv init -)"
 
 # pnpm settings
 export PNPM_HOME="$HOME/.local/share/pnpm"
@@ -132,6 +135,9 @@ case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
+
+# Applications setting
+export PATH="$PATH:$HOME/Applications"
 
 # Switch to fish if not running Emacs
 [[ $EMACS != "yes" ]] && exec fish

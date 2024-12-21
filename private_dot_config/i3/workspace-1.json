@@ -1,0 +1,23 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1056,
+       "width": 1916,
+       "x": 1922,
+       "y": 22
+    },
+    "marks": [],
+    "name": "i3wmを毎回同じレイアウトで起動する - 恥は/dev/nullへ by 初心者 - Brave",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Brave\\-browser$",
+       "instance": "^brave\\-browser$",
+       "window_role": "^browser$"
+       }
+    ],
+    "type": "con"
+}
+

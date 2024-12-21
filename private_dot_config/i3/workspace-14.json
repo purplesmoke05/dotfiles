@@ -1,0 +1,23 @@
+{
+    "border": "pixel",
+    "current_border_width": 2,
+    "floating": "auto_off",
+    "geometry": {
+       "height": 1056,
+       "width": 1916,
+       "x": 1922,
+       "y": 22
+    },
+    "marks": [],
+    "name": "9_close.yml - isucon-setup - Visual Studio Code",
+    "percent": 1,
+    "swallows": [
+       {
+       "class": "^Code$",
+       "instance": "^code$",
+       "window_role": "^browser\\-window$"
+       }
+    ],
+    "type": "con"
+}
+

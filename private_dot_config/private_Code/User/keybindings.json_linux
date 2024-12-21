@@ -1,7 +1,7 @@
 [
     { "key": "ctrl+=", "command": "workbench.action.terminal.focus"},
     {
-        "key": "meta+2",
+        "key": "ctrl+]",
         "command": "workbench.action.focusActiveEditorGroup"
     },
     {
@@ -37,7 +37,7 @@
         "when": "editorTextFocus && foldingEnabled"
     },
     {
-        "key": "meta+1",
+        "key": "ctrl+q",
         "command": "workbench.explorer.fileView.focus"
     },
     {
@@ -210,7 +210,7 @@
     {
         "key": "ctrl+s",
         "command": "actions.find",
-        "when": "editorFocus || editorIsOpen"
+        "when": "(editorFocus || editorIsOpen) && !findInputFocussed"
     },
     {
         "key": "ctrl+f",
@@ -514,7 +514,7 @@
         "command": "-workbench.action.openEditorAtIndex2"
     },
     {
-        "key": "ctrl+=",
+        "key": "ctrl+]",
         "command": "workbench.action.focusActiveEditorGroup",
         "when": "terminalFocus"
     },
@@ -712,5 +712,155 @@
         "key": "f9",
         "command": "-editor.debug.action.toggleBreakpoint",
         "when": "debuggersAvailable && disassemblyViewFocus || debuggersAvailable && editorTextFocus"
+    },
+    {
+        "key": "ctrl+k e",
+        "command": "-workbench.files.action.focusOpenEditorsView",
+        "when": "workbench.explorer.openEditorsView.active"
+    },
+    {
+        "key": "ctrl+.",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+'",
+        "command": "-editor.action.triggerSuggest",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+alt+meta+n",
+        "command": "-welcome.showNewFileEntries"
+    },
+    {
+        "key": "ctrl+q",
+        "command": "-workbench.action.quit"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-editor.action.clipboardPasteAction"
+    },
+    {
+        "key": "ctrl+v",
+        "command": "-filesExplorer.paste",
+        "when": "filesExplorerFocus && foldersViewVisible && !explorerResourceReadonly && !inputFocus"
+    },
+    {
+        "key": "meta+v",
+        "command": "emacs-mcx.scrollDownCommand",
+        "when": "editorTextFocus && !config.emacs-mcx.useMetaPrefixMacCmd && !suggestWidgetVisible"
+    },
+    {
+        "key": "alt+v",
+        "command": "-emacs-mcx.scrollDownCommand",
+        "when": "editorTextFocus && !config.emacs-mcx.useMetaPrefixMacCmd && !suggestWidgetVisible"
+    },
+    {
+        "key": "meta+v",
+        "command": "emacs-mcx.scrollDownCommand",
+        "when": "config.emacs-mcx.useMetaPrefixMacCmd && editorTextFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "alt+v",
+        "command": "-emacs-mcx.scrollDownCommand",
+        "when": "config.emacs-mcx.useMetaPrefixMacCmd && editorTextFocus && !suggestWidgetVisible"
+    },
+    {
+        "key": "ctrl+o",
+        "command": "editor.action.startFindReplaceAction"
+    },
+    {
+        "key":  "enter",
+        "command": "editor.action.nextMatchFindAction",
+        "when": "editorFocus && findWidgetVisible && !replaceInputFocussed"
+    },
+    {
+        "key": "ctrl+a",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+b",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+e",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+f",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+n",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+p",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+a",
+        "command": "-editor.action.selectAll"
+    },
+    {
+        "key": "ctrl+k",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+w",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+space",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+y",
+        "command": "",
+        "when": "editorFocus && findWidgetVisible && findInputFocussed",
+    },
+    {
+        "key": "ctrl+space",
+        "command": "emacs-mcx.setMarkCommand",
+        "when": "editorTextFocus || findInputFocussed"
+    },
+    {
+        "key": "ctrl+space",
+        "command": "-emacs-mcx.setMarkCommand",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "emacs-mcx.cancel",
+        "when": "editorHasSelection && editorTextFocus && !config.emacs-mcx.useMetaPrefixEscape"
+    },
+    {
+        "key": "ctrl+g",
+        "command": "closeFindWidget",
+        "when": "editorFocus && findWidgetVisible && !isComposing"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "-emacs-mcx.isearchExit",
+        "when": "editorFocus && findWidgetVisible && !isComposing"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "emacs-mcx.yank",
+        "when": "(editorTextFocus && !editorReadonly) || findInputFocussed"
+    },
+    {
+        "key": "ctrl+y",
+        "command": "-emacs-mcx.yank",
+        "when": "editorTextFocus && !editorReadonly"
     }
 ]

@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+set $mod Mod4
+set $submod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -90,18 +91,18 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
-bindsym $mod+t split h
+bindsym $submod+h split h
 
 # split in vertical orientation
-bindsym $mod+v split v
+bindsym $submod+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+# bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+# bindsym $mod+s layout stacking
+# bindsym $mod+w layout tabbed
+# bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -110,7 +111,7 @@ bindsym $mod+Shift+space floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -256,8 +257,8 @@ for_window [class="^.*"] border pixel 2
 # new_window 1pixel
 
 # Run wofi luncher
-bindsym $mod+d exec --no-startup-id "rofi -modi 'run,drun' -show run"
-bindsym Mod4+Tab exec --no-startup-id "rofi -show window"
+bindsym Control+4 exec --no-startup-id "rofi -modi 'run,drun' -show run"
+bindsym $mod+Tab exec --no-startup-id "bash ~/.config/rofi/switcher.sh"
 
 # Run animation manager
 exec --no-startup-id "picom -b"
@@ -269,13 +270,13 @@ exec --no-startup-id discord
 exec --no-startup-id alacritty
 
 # Run editor
-exec --no-startup-id pycharm
 exec --no-startup-id goland
+exec --no-startup-id code
 
 # Run program
-exec --no-startup-id alacritty
-exec --no-startup-id steam
 exec --no-startup-id brave-browser
+# exec --no-startup-id steam
+
 
 # Run IME
 exec --no-startup-id fcitx
@@ -290,23 +291,28 @@ client.placeholder      #282A2E #282A2E #C5C8C6 #282A2E   #282A2E
 client.background       #282A2E
 
 # Assign applications to specific workspace
-assign [class="alacritty"] workspace "2:left2"
-assign [class="pycharm"] workspace "3:left3"
-assign [class="goland"] workspace "4:left4"
-
+# assign [class="alacritty"] workspace "2:left2"
+# assign [class="pycharm"] workspace "3:left3"
+assign [class="goland"] workspace "13:right3"
 assign [class="discord"] workspace "11:right1"
-assign [class="blueman-manager"] workspace "11:right1"
-assign [class="steam"] workspace "12:right2"
+
+exec --no-startup-id "i3-msg 'workspace 1:left1; append_layout ~/.config/i3/workspace-1.json'"
+exec --no-startup-id "i3-msg 'workspace 2:left2; append_layout ~/.config/i3/workspace-2.json'"
+exec --no-startup-id "i3-msg 'workspace 11:right1; append_layout ~/.config/i3/workspace-11.json'"
+exec --no-startup-id "i3-msg 'workspace 12:right2; append_layout ~/.config/i3/workspace-12.json'"
+exec --no-startup-id "i3-msg 'workspace 13:right3; append_layout ~/.config/i3/workspace-13.json'"
+exec --no-startup-id "i3-msg 'workspace 14:right4; append_layout ~/.config/i3/workspace-14.json'"
 
 # Run wallpaper manager
-exec --no-startup-id "nitrogen --set-zoom-fill --save --random ~/Pictures/Wallpapers/"
+exec_always --no-startup-id "nitrogen --set-zoom-fill --save --random ~/Pictures/Wallpapers/"
 
-exec_always autorandr --change
+exec_always --no-startup-id autorandr --change
 exec --no-startup-id autorandr --load full
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="task_dialog"] floating enable
+for_window [instance="guake"] floating enable
 
 # Keyboard Repeat Settings
 exec --no-startup-id xset r rate 200 35
@@ -317,5 +323,15 @@ exec --no-startup-id streamdeck -n
 # Run Xmodmao
 exec_always --no-startup-id xmodmap ~/.Xmodmap
 
-# Run i3-quickterm
-bindsym Control+3 exec i3-quickterm shell
+# Run Quake
+exec --no-startup-id guake 
+
+## Screenshots
+bindsym Print exec --no-startup-id maim "/home/$USER/Pictures/screenshot-$(date +%Y%m%d-%H%M%S).png"
+bindsym $mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) "/home/$USER/Pictures/window-$(date +%Y%m%d-%H%M%S).png"
+bindsym Shift+Print exec --no-startup-id maim --select "/home/$USER/Pictures/selection-$(date +%Y%m%d-%H%M%S).png"
+
+## Clipboard Screenshots
+bindsym Ctrl+Print exec --no-startup-id maim | xclip -selection clipboard -t image/png
+bindsym Ctrl+$mod+Print exec --no-startup-id maim --window $(xdotool getactivewindow) | xclip -selection clipboard -t image/png
+bindsym Ctrl+Shift+Print exec --no-startup-id maim --select | xclip -selection clipboard -t image/png

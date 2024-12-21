@@ -27,7 +27,7 @@ cyan = "0x39c5cf"
 white = "0xb1bac4"
 
 [font]
-size = 8.0
+size = 9.0
 
 [font.bold]
 family = "RobotoMono Nerd Font"
